@@ -1,1 +1,1 @@
-​
+don't we need to initilize the values of slow and fast pointer to head?
