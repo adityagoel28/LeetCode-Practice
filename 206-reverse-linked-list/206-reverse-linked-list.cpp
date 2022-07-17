@@ -11,16 +11,28 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        if(head == NULL)    return NULL;
-        else if(head->next == NULL) return head;
-        vector<int> arr;
-        for(ListNode *curr = head; curr != NULL; curr=curr->next){
-            arr.push_back(curr->val);
+        
+        // Naive Solution
+        // if(head == NULL)    return NULL;
+        // else if(head->next == NULL) return head;
+        // vector<int> arr;
+        // for(ListNode *curr = head; curr != NULL; curr=curr->next){
+        //     arr.push_back(curr->val);
+        // }
+        // for(ListNode *curr = head; curr != NULL; curr=curr->next){
+        //     curr->val = arr.back();
+        //     arr.pop_back();
+        // }
+        // return head;
+        
+        // Efficient Solution
+        ListNode *curr = head, *prev = NULL;
+        while(curr != NULL){
+            ListNode *next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
         }
-        for(ListNode *curr = head; curr != NULL; curr=curr->next){
-            curr->val = arr.back();
-            arr.pop_back();
-        }
-        return head;
+        return prev;
     }
 };
