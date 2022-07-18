@@ -1,6 +1,8 @@
 class Solution {
 public:
     int longestPalindrome(string s) {
+       // Basic Solution (not good) 
+        
         int len = 0, k = 0, j = 0;
         unordered_map<char, int> M;
         for(int i = 1; i<s.length(); i++){
@@ -27,6 +29,19 @@ public:
             else    k = 1;
         }
         if(k == 0)    return len;
-        return len+1;
+        return len + 1;
+        
+        // Optimised solution
+//         unordered_map<char,int> m;
+//         int oddCount = 0, ans = 0;
+        
+//         for(auto &c:s)
+//             m[c]++;
+//         for(auto &c:s){ 
+//             ans += (m[c] / 2) * 2;
+//             m[c] = m[c] % 2;
+//         }
+        
+//         return ans;
     }
 };
