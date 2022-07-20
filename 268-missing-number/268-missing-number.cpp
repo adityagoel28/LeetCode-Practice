@@ -2,7 +2,7 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
         // Cyclic Sort Method
-        int missing = -1, i = 0, n = nums.size();
+        int i = 0, n = nums.size();
         while(i < n){
             int j = nums[i];
             if(nums[i] < n && nums[i] != nums[j]){
@@ -13,10 +13,9 @@ public:
             else    i++;
         }
         for(int k = 0; k<n; k++){
-            if(nums[k] != k) missing = k;
+            if(nums[k] != k) return k;
         }
-        if(missing == -1)    return n;
-        return missing;
+        return n;
         
         // XOR Method
         
