@@ -2,8 +2,6 @@ class Solution {
 public:
     vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
         vector<int> target(index.size(), -1);
-        // target[1] = 6;
-        // target[1] = 9;
         for(int i = 0; i < nums.size(); i++){
             if(target[index[i]] != -1){
                 auto itPos = target.begin() + index[i];
