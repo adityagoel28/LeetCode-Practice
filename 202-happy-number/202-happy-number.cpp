@@ -13,16 +13,12 @@ public:
         return ans;
     }
     bool isHappy(int n) {
-        vector<int> anss = summ(n);
-        int digit = anss[1];
-        int num1 = anss[0];
         unordered_map<int, int> m;
-        m[num1]++;
-        while(num1 != 1 && m[num1] < 2){
-            vector<int> ans1 = summ(num1);
-            digit = ans1[1];
-            num1 = ans1[0];
-            m[num1]++;
+        while(n != 1 && m[n] < 2){
+            vector<int> ans1 = summ(n);
+            int digit = ans1[1];
+            n = ans1[0];
+            m[n]++;
         }
         for(auto x:m){
             if(x.second > 1)    return false;
