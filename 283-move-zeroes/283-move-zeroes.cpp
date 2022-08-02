@@ -5,14 +5,12 @@ public:
         vector<int>::iterator it;
         for(int i = 0; i<nums.size(); i++){
             if(nums[i] == 0){
-                // cout<<i;
                 it = nums.begin() + i;
                 nums.erase(it);
                 count++;
                 i -= 1;
             }
         }
-        // cout<<count;
         for(int i = 0; i<count; i++){
             nums.push_back(0);
         }
