@@ -18,19 +18,5 @@ public:
             }
         }
         return ans;
-        // Priority Queue, pair<int,char
-        // priority_queue<pair<int,char>>maxheap;
-        // for(auto it:m){
-        //     maxheap.push({it.second,it.first});
-        // }
-        
-        // while(maxheap.empty()==0){
-        //     pair<int,char>p = maxheap.top();
-        //     maxheap.pop();
-        //     int b = p.first;
-        //     while(b--){
-        //         ans+=p.second;
-        //     }
-        // }
     }
 };
