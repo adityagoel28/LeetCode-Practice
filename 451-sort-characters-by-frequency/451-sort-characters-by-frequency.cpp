@@ -5,17 +5,21 @@ public:
         for(int i = 0; i < s.length(); i++){
             m[s[i]]++;
         }
-        vector<pair<int,char>>v;
+        
+        // Priority Queue,pair<int,char
+        priority_queue<pair<int,char>>maxheap;
         for(auto it:m){
-            v.push_back({it.second,it.first});
+            maxheap.push({
+                it.second,it.first
+            });
         }
-        sort(v.begin(),v.end());
         string ans = "";
-        for(int i=v.size()-1;i>=0;i--){
-            int b = v[i].first;
-            while(b){
-                ans+=v[i].second;
-                b--;
+        while(maxheap.empty()==0){
+            pair<int,char>p = maxheap.top();
+            maxheap.pop();
+            int b = p.first;
+            while(b--){
+                ans+=p.second;
             }
         }
         return ans;
