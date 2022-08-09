@@ -17,6 +17,7 @@ public:
                 ans += v[i].second;
             }
         }
+        return ans;
         // Priority Queue, pair<int,char
         // priority_queue<pair<int,char>>maxheap;
         // for(auto it:m){
@@ -31,6 +32,5 @@ public:
         //         ans+=p.second;
         //     }
         // }
-        return ans;
     }
 };
