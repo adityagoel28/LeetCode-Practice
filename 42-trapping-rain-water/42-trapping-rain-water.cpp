@@ -14,18 +14,36 @@ public:
         //     ans += min(left_max, right_max) - height[i];
         // }
         
-        int ans = 0, size = height.size();
-        vector<int> left_max(size), right_max(size);
-        left_max[0] = height[0];
-        right_max[size-1] = height[size-1];
-        for(int i = 1; i<size; i++){
-            left_max[i] = max(height[i], left_max[i-1]);
-        }
-        for(int i = size-2; i>=0; i--){
-            right_max[i] = max(height[i], right_max[i+1]);
-        }
-        for(int i = 1; i<size-1; i++){
-            ans += min(left_max[i], right_max[i]) - height[i];
+        // DP Method
+        // int ans = 0, size = height.size();
+        // vector<int> left_max(size), right_max(size);
+        // left_max[0] = height[0];
+        // right_max[size-1] = height[size-1];
+        // for(int i = 1; i<size; i++){
+        //     left_max[i] = max(height[i], left_max[i-1]);
+        // }
+        // for(int i = size-2; i>=0; i--){
+        //     right_max[i] = max(height[i], right_max[i+1]);
+        // }
+        // for(int i = 1; i<size-1; i++){
+        //     ans += min(left_max[i], right_max[i]) - height[i];
+        // }
+        // return ans;
+        
+        // Two Pointer Method
+        int ans = 0, left_max = 0, right_max = 0;
+        int size = height.size(), left = 0, right = size - 1;
+        while(left < right){
+            if(height[left] < height[right]){
+                if(height[left] > left_max) left_max = height[left];
+                else    ans += left_max - height[left];
+                left++;
+            }
+            else{
+                if(height[right] > right_max)   right_max = height[right];
+                else    ans += right_max - height[right];
+                right--;
+            }
         }
         return ans;
     }
