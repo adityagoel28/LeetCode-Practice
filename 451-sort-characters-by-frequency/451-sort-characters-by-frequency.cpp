@@ -1,8 +1,6 @@
 class Solution {
 public:
     string frequencySort(string s) {
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
         unordered_map<char, int> m;
         string ans = "";
         for(int i = 0; i < s.length(); i++){
@@ -14,8 +12,7 @@ public:
         }
         sort(v.begin(), v.end());
         for(int i = v.size()-1; i >= 0; i--){
-            int b = v[i].first;
-            while(b--){
+            while(v[i].first--){
                 ans += v[i].second;
             }
         }
