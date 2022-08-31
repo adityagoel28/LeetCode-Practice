@@ -20,15 +20,6 @@ public:
         if(digits.size() == 0)  return ans;
         string str = "";
         backtrack(0, digits, str);
-        // for(int i = 0; i<digits.size(); i++){
-        //     int m = digits[i] - '0';
-        //     s += a[m];
-        //     for(int j = i+1; j<digits.size(); j++){
-        //         int n = digits[j] - '0';
-        //         s += a[n];
-        //     }
-        //     ans.push_back(s);
-        // }
         return ans;
     }
 };
