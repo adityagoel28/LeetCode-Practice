@@ -12,17 +12,16 @@
 class Solution {
 public:
     int sum = 0;
-    int traverse(TreeNode* root, int pos){
-        if(root == NULL)    return 0;
+    void traverse(TreeNode* root, int pos){
+        if(root == NULL)    return;
         if(root->left == root->right and pos == 0){
             sum += root->val;
         }
-        int leftVal = traverse(root->left, 0);
-        int rightVal = traverse(root->right, 1);
-        return sum;
+        traverse(root->left, 0);
+        traverse(root->right, 1);
     }
     int sumOfLeftLeaves(TreeNode* root) {
-        sum = traverse(root, 1);
+        traverse(root, 1);
         return sum;
     }
 };
