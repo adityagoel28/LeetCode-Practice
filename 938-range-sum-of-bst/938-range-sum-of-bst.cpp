@@ -12,14 +12,11 @@
 class Solution {
 public:
     int summ = 0;
-    void inorderTraversal(TreeNode* root, int low, int high){
-        if(root == NULL)    return;
-        if(root->val <= high and root->val >= low)  summ += root->val;
-        inorderTraversal(root->left, low, high);
-        inorderTraversal(root->right, low, high);
-    }
     int rangeSumBST(TreeNode* root, int low, int high) {
-        inorderTraversal(root, low, high);
+        if(root == NULL)    return 0;
+        if(root->val <= high and root->val >= low)  summ += root->val;
+        rangeSumBST(root->left, low, high);
+        rangeSumBST(root->right, low, high);
         return summ;
     }
 };
