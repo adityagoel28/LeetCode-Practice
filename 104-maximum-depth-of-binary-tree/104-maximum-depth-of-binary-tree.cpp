@@ -24,6 +24,7 @@ public:
             for(int i = 0; i < len; i++){
                 temp = q.front();
                 q.pop();
+                // cout<<temp->val<<endl;
                 v.push_back(temp->val);
                 if(temp->left) q.push(temp->left);
                 if(temp->right) q.push(temp->right);
