@@ -5,7 +5,7 @@ public:
         while(n){
             rev += (n & 1) << power;
             n >>= 1;
-            power -= 1;
+            power--;
         }
         return rev;
     }
