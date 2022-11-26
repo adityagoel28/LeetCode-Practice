@@ -1,41 +1,21 @@
 class Solution {
 public:
     int evalRPN(vector<string>& tokens) {
-        int value = 0, n = tokens.size();
         stack<long> st;
+        unordered_map<string, int> operators = {{"+", 1}, {"-", 1}, {"*", 1}, {"/", 1}};
+        long n = tokens.size(), n1, n2, res;
         for(int i = 0; i<n; i++){
-            if(tokens[i] == "+"){
-                int n1 = st.top();
+            if(operators.find(tokens[i]) != operators.end()){
+                n1 = st.top();
                 st.pop();
-                int n2 = st.top();
+                n2 = st.top();
                 st.pop();
-                int res = n1 + n2;
-                st.push(res);
             }
-            else if(tokens[i] == "-"){
-                int n1 = st.top();
-                st.pop();
-                int n2 = st.top();
-                st.pop();
-                int res = n2 - n1;
-                st.push(res);
-            }
-            else if(tokens[i] == "*"){
-                long n1 = st.top();
-                st.pop();
-                long n2 = st.top();
-                st.pop();
-                long res = n1 * n2;
-                st.push(res);
-            }
-            else if(tokens[i] == "/"){
-                int n1 = st.top();
-                st.pop();
-                int n2 = st.top();
-                st.pop();
-                int res = n2 / n1;
-                st.push(res);
-            }
+            if(tokens[i] == "+")        res = n1 + n2;
+            else if(tokens[i] == "-")   res = n2 - n1;
+            else if(tokens[i] == "*")   res = n1 * n2;
+            else if(tokens[i] == "/")   res = n2 / n1;
+            if(operators.find(tokens[i]) != operators.end())    st.push(res);
             else    st.push(stoi(tokens[i]));
         }
         return st.top();
